@@ -10,13 +10,14 @@
         </tr>
     </thead>
     <tbody>
-         <tr *ngFor=" let suplemento of suplementos">
+         <tr *ngFor=" let suplemento of suplementos" [ngClass]="{'clearance': suplemento.clearance}">
             <td><img [src]="suplemento.image" [alt]="suplemento.name"/></td>
             <td id="name">{{suplemento.name}}</td>
             <td>{{suplemento.type}}</td>
-            <td>{{suplemento.price}}</td>
+            <td>{{suplemento.price | currency}}</td>
             <td>{{suplemento.cant}}</td>
             <td><span *ngIf="suplemento.stock==0" class="badge text-bg-danger">SIN STOCK</span></td>
+            <td><span *ngIf="suplemento.clearance==true" class="badge text-bg-success">OFERTA</span></td>
         </tr>
         
     </tbody>

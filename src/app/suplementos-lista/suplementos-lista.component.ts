@@ -16,7 +16,8 @@ export class SuplementosListaComponent {
       cant:"1200g",
       price:25,
       stock:20,
-      image:"assets/img/proteEna.webp"
+      image:"assets/img/proteEna.webp",
+      clearance: false,
     },
      {
       name: "Creatina Star DOYPACK",
@@ -24,7 +25,8 @@ export class SuplementosListaComponent {
       cant: "300g",
       price: 32,
       stock:3,
-      image:"assets/img/CreaStar_300.webp"
+      image:"assets/img/CreaStar_300.webp",
+      clearance: true,
     },
      {
       name: "Citrato de Magnesio(ENA)",
@@ -32,7 +34,8 @@ export class SuplementosListaComponent {
       cant: "60 CAPS",
       price:15,
       stock:0,
-      image:"assets/img/MagnesioEna.webp"
+      image:"assets/img/MagnesioEna.webp",
+      clearance: false,
     }
     ]; 
    
