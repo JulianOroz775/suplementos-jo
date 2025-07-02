@@ -10,24 +10,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+         <tr *ngFor=" let suplemento of suplementos">
             <td><img [src]="suplemento.image" [alt]="suplemento.name"/></td>
-            <td>{{suplemento.name}}</td>
+            <td id="name">{{suplemento.name}}</td>
             <td>{{suplemento.type}}</td>
             <td>{{suplemento.price}}</td>
-            <td>{{suplemento.stock}}</td>
+            <td>{{suplemento.cant}}</td>
+            <td><span *ngIf="suplemento.stock==0" class="badge text-bg-danger">SIN STOCK</span></td>
         </tr>
-        <tr>
-            <td>Creatina Animal</td>
-            <td>Creatina</td>
-            <td>35</td>
-            <td>12</td>
-        </tr>
-        <tr>
-            <td>Magnesio Ultra Tech</td>
-            <td>Magnesio</td>
-            <td>50</td>
-            <td>4</td>
-        </tr>
+        
     </tbody>
 </table>
