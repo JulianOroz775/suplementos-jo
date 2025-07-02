@@ -1,0 +1,33 @@
+<h1>Lista de Suplementos</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Precio</th>
+            <th>Porcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img [src]="suplemento.image" [alt]="suplemento.name"/></td>
+            <td>{{suplemento.name}}</td>
+            <td>{{suplemento.type}}</td>
+            <td>{{suplemento.price}}</td>
+            <td>{{suplemento.stock}}</td>
+        </tr>
+        <tr>
+            <td>Creatina Animal</td>
+            <td>Creatina</td>
+            <td>35</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>Magnesio Ultra Tech</td>
+            <td>Magnesio</td>
+            <td>50</td>
+            <td>4</td>
+        </tr>
+    </tbody>
+</table>
