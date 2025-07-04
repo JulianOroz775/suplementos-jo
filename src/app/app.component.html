@@ -7,22 +7,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+          <a class="nav-link" [routerLink]="['/about']">Contacto</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Suplementos
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Creatinas</a></li>
-            <li><a class="dropdown-item" href="#">Proteinas</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Algo mas</a></li>
-          </ul>
-        </li>
+       
         
       </ul>
       <form class="d-flex" role="search">
@@ -35,13 +25,10 @@
 
 <h1>Titulo </h1>
 <div class="containter">
-  <div class="row">
-    <div class="col-8">
-      <app-suplementos-lista></app-suplementos-lista>
-    </div>
-    <div class="col-4">Carrito de Compras</div>
-  </div>
+  
+    <router-outlet></router-outlet>
+
 </div>
 
 
-<footer>{{title}} 2025</footer>
+<footer class="footer-default text-center">{{title}} 2025</footer>
