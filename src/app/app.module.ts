@@ -4,15 +4,18 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SuplementosListaComponent } from './suplementos-lista/suplementos-lista.component';
+import { FormsModule } from '@angular/forms'; // 👉 Agregá esto
+
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
-    SuplementosListaComponent
+    SuplementosListaComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(withEventReplay())
