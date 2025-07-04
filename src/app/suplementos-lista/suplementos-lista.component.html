@@ -16,8 +16,21 @@
             <td>{{suplemento.type}}</td>
             <td>{{suplemento.price | currency}}</td>
             <td>{{suplemento.cant}}</td>
-            <td><span *ngIf="suplemento.stock==0" class="badge text-bg-danger">SIN STOCK</span></td>
-            <td><span *ngIf="suplemento.clearance==true" class="badge text-bg-success">OFERTA</span></td>
+            <td>
+                <span *ngIf="suplemento.stock==0" class="badge text-bg-danger">SIN STOCK</span>
+                <span *ngIf="suplemento.stock > 0" > ✓​</span></td>
+            <td>
+                <button class="btn btn-success" (click)="downQuantity(suplemento)" >-</button>
+                <input 
+                    class=""
+                    type="text" 
+                    [(ngModel)]="suplemento.quantity"
+                    (keyup)="onChangeQuantity($event, suplemento)"
+                >
+                <button class="btn btn-success" (click)="upQuantity(suplemento)">+</button>
+                {{ suplemento.quantity }}
+            </td>
+            
         </tr>
         
     </tbody>
