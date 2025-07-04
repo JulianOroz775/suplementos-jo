@@ -18,6 +18,7 @@ export class SuplementosListaComponent {
       stock:20,
       image:"assets/img/proteEna.webp",
       clearance: false,
+      quantity:0,
     },
      {
       name: "Creatina Star DOYPACK",
@@ -27,6 +28,7 @@ export class SuplementosListaComponent {
       stock:3,
       image:"assets/img/CreaStar_300.webp",
       clearance: true,
+      quantity:0,
     },
      {
       name: "Citrato de Magnesio(ENA)",
@@ -36,7 +38,29 @@ export class SuplementosListaComponent {
       stock:0,
       image:"assets/img/MagnesioEna.webp",
       clearance: false,
+      quantity:0,
     }
-    ]; 
+    ];
+    
+  upQuantity(suplemento : Suplemento): void{
+    if(suplemento.quantity<suplemento.stock){
+      
+      suplemento.quantity++;
+    
+      }
+  }
+
+  downQuantity(suplemento : Suplemento): void{
+    if(suplemento.quantity > 0){
+
+      suplemento.quantity--;
+
+    }
+  }
+
+  onChangeQuantity(event : KeyboardEvent, suplemento :Suplemento): void{
+      console.log(event.key)
+      event.preventDefault();
+  };
    
 }
