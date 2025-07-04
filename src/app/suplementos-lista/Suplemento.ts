@@ -6,4 +6,5 @@ export interface Suplemento{
     stock: number;
     image: String;
     clearance: boolean;
+    quantity:0,
 }
