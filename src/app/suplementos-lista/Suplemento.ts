@@ -8,3 +8,4 @@ export interface Suplemento{
     clearance: boolean;
     quantity:number,
 }
+

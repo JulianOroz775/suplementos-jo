@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Suplemento } from './Suplemento';
 import { SuplementosCartService } from '../suplementos-cart.service';
+import { SuplementoDataService } from '../suplemento-data.service';
 
 @Component({
   selector: 'app-suplementos-lista',
@@ -8,44 +9,19 @@ import { SuplementosCartService } from '../suplementos-cart.service';
   templateUrl: './suplementos-lista.component.html',
   styleUrl: './suplementos-lista.component.scss'
 })
-export class SuplementosListaComponent {
+export class SuplementosListaComponent implements OnInit{
 
+    suplementos: Suplemento[] = [];
 
-    constructor(private cart: SuplementosCartService){
+    constructor(
+      private cart: SuplementosCartService,
+      private suplementosDataService: SuplementoDataService){
     }
     
-    suplementos: Suplemento[]=[
-       {
-      name: "Proteina Ena",
-      type: "Proteina",
-      cant:"1200g",
-      price:25,
-      stock:20,
-      image:"assets/img/proteEna.webp",
-      clearance: false,
-      quantity:0,
-    },
-     {
-      name: "Creatina Star DOYPACK",
-      type: "Creatina",
-      cant: "300g",
-      price: 32,
-      stock:3,
-      image:"assets/img/CreaStar_300.webp",
-      clearance: true,
-      quantity:0,
-    },
-     {
-      name: "Citrato de Magnesio(ENA)",
-      type: "Magnesio",
-      cant: "60 CAPS",
-      price:15,
-      stock:0,
-      image:"assets/img/MagnesioEna.webp",
-      clearance: false,
-      quantity:0,
+    ngOnInit() : void{
+      this.suplementosDataService.getAll()
+      .subscribe( suplementos => this.suplementos = suplementos)
     }
-    ];
     
 
     addToCart(suplemento: Suplemento): void {
