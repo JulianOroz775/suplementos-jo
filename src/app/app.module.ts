@@ -7,25 +7,24 @@ import { SuplementosListaComponent } from './suplementos-lista/suplementos-lista
 import { FormsModule } from '@angular/forms';
 import { SuplementosAboutComponent } from './suplementos-about/suplementos-about.component';
 import { SuplementosSuplementoComponent } from './suplementos-suplemento/suplementos-suplemento.component';
-import { CartComponent } from './cart/cart.component'; // 👉 Agregá esto
+import { CartComponent } from './cart/cart.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     AppComponent,
     SuplementosListaComponent,
     SuplementosAboutComponent,
     SuplementosSuplementoComponent,
     CartComponent,
+    InputIntegerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [
-    provideClientHydration(withEventReplay())
-  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

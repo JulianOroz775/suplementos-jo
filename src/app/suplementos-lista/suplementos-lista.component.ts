@@ -42,25 +42,5 @@ export class SuplementosListaComponent {
     }
     ];
     
-  upQuantity(suplemento : Suplemento): void{
-    if(suplemento.quantity<suplemento.stock){
-      
-      suplemento.quantity++;
-    
-      }
-  }
 
-  downQuantity(suplemento : Suplemento): void{
-    if(suplemento.quantity > 0){
-
-      suplemento.quantity--;
-
-    }
-  }
-
-  onChangeQuantity(event : KeyboardEvent, suplemento :Suplemento): void{
-      console.log(event.key)
-      event.preventDefault();
-  };
-   
 }
