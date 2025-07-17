@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SuplementosCartService } from '../suplementos-cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class CartComponent {
 
+    constructor(private cart: SuplementosCartService){
+      
+    }
 }

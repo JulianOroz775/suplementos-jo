@@ -8,6 +8,9 @@
             <th>Precio</th>
             <th>Porcion</th>
             <th>Stock</th>
+            <th>Cantidad</th>
+            <th>Compra</th>
+
         </tr>
     </thead>
     <tbody>
@@ -25,7 +28,11 @@
            
             <td>
                 <app-input-integer [(quantity)]="suplemento.quantity" [max]="suplemento.stock" *ngIf="suplemento.stock"></app-input-integer>
-                
+            </td>
+
+            <td>
+                <button class="btn btn-primary" (click)="addToCart(suplemento)">Comprar</button>
+
             </td>
             
         </tr>

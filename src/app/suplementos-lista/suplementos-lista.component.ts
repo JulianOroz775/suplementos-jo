@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Suplemento } from './Suplemento';
+import { SuplementosCartService } from '../suplementos-cart.service';
 
 @Component({
   selector: 'app-suplementos-lista',
@@ -9,6 +10,10 @@ import { Suplemento } from './Suplemento';
 })
 export class SuplementosListaComponent {
 
+
+    constructor(private cart: SuplementosCartService){
+    }
+    
     suplementos: Suplemento[]=[
        {
       name: "Proteina Ena",
@@ -43,4 +48,13 @@ export class SuplementosListaComponent {
     ];
     
 
+    addToCart(suplemento: Suplemento): void {
+    
+      this.cart.addToCart(suplemento)
+      
+      suplemento.stock -= suplemento.quantity;
+      
+      suplemento.quantity= 0;
+    
+    }
 }
