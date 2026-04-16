@@ -1,0 +1,50 @@
+<div class="detalle-container" *ngIf="suplemento">
+  <div class="detalle-imagen">
+    <img [src]="suplemento.image" [alt]="suplemento.name">
+  </div>
+
+  <div class="detalle-info">
+    <p class="breadcrumb">
+      Inicio . Suplementos . {{ suplemento.name }}
+    </p>
+
+    <h1>{{ suplemento.name }}</h1>
+
+    <p class="tipo">{{ suplemento.type }}</p>
+
+    <p class="precio">{{ suplemento.price | currency }}</p>
+
+    <p class="transferencia">
+      {{ suplemento.price * 0.9 | currency }} con Transferencia
+    </p>
+
+    <p class="porcion">
+      Tamaño: <strong>{{ suplemento.cant }}</strong>
+    </p>
+
+    <div class="stock">
+      <span *ngIf="suplemento.stock > 0">{{ suplemento.stock }} en stock</span>
+      <span *ngIf="suplemento.stock === 0" class="sin-stock">Sin stock</span>
+    </div>
+
+    <div class="compra-box">
+      <div class="cantidad">
+        <button>-</button>
+        <span>1</span>
+        <button>+</button>
+      </div>
+
+      <button class="btn-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="descripcion">
+      <h3>Descripción</h3>
+      <p><strong>Producto:</strong> {{ suplemento.name }}</p>
+      <p><strong>Tipo:</strong> {{ suplemento.type }}</p>
+      <p><strong>Presentación:</strong> {{ suplemento.cant }}</p>
+      <p>
+        Suplemento ideal para complementar el entrenamiento y la recuperación.
+      </p>
+    </div>
+  </div>
+</div>

@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Suplemento } from './suplementos-lista/Suplemento';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 
-const URL = 'https://68787f3963f24f1fdc9e3056.mockapi.io/suplementos'
+const URL = 'https://68787f3963f24f1fdc9e3056.mockapi.io/suplements'
 @Injectable({
   providedIn: 'root'
 })
@@ -21,4 +21,12 @@ export class SuplementoDataService {
     );
   
   }
+  
+  public getOne(id: number): Observable<Suplemento | undefined> {
+  return this.getAll().pipe(
+    map((suplementos: Suplemento[]) =>
+      suplementos.find(s => s.id === id)
+    )
+  );
+}
 }

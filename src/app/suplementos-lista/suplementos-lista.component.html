@@ -15,7 +15,7 @@
     </thead>
     <tbody>
          <tr *ngFor=" let suplemento of suplementos" [ngClass]="{'clearance': suplemento.clearance}">
-            <td><img [src]="suplemento.image" [alt]="suplemento.name"/></td>
+            <td><img [src]="suplemento.image" [alt]="suplemento.name" [routerLink]="['/suplementos', suplemento.id]" style="cursor: pointer;"/></td>
             <td id="name">{{suplemento.name}}</td>
             <td>{{suplemento.type}}</td>
             <td>{{suplemento.price | currency}}</td>

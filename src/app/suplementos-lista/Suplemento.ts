@@ -1,4 +1,5 @@
 export interface Suplemento{
+    id: number;
     name: String;
     type: String;
     cant: String

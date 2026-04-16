@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SuplementosSuplementoComponent } from './suplementos-suplemento/suplementos-suplemento.component';
 import { SuplementosAboutComponent } from './suplementos-about/suplementos-about.component';
+import { ListarSuplementoComponent } from './listar-suplemento/listar-suplemento.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,11 @@ const routes: Routes = [
     {
       path: 'about',
       component: SuplementosAboutComponent
+    },
+    
+    {
+      path: 'suplementos/:id',
+      component: ListarSuplementoComponent
     }
 
 ];
