@@ -1,23 +1,42 @@
 import { Component } from '@angular/core';
 import { SuplementosCartService } from '../suplementos-cart.service';
 import { Suplemento } from '../suplementos-lista/Suplemento';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
+import { CommonModule, CurrencyPipe } from '@angular/common';;
 
 @Component({
   selector: 'app-cart',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, CurrencyPipe],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+  styleUrls: ['./cart.component.scss']
 })
+
 export class CartComponent {
+  cartList$: Observable<Suplemento[]>;
+  isOpen = false;
 
+  constructor(public cart: SuplementosCartService) {
+    this.cartList$ = this.cart.cartList.asObservable();
+  }
 
-    cartList$: Observable<Suplemento[]>;
+  toggleCart(): void {
+    this.isOpen = !this.isOpen;
+  }
 
-    constructor(private cart: SuplementosCartService){
-      
-      this.cartList$ = cart.cartList.asObservable();
-  
-    }
+  closeCart(): void {
+    this.isOpen = false;
+  }
 
+  removeItem(id: number): void {
+    this.cart.removeFromCart(id);
+  }
+
+  getTotalItems(): number {
+    return this.cart.getTotalItems();
+  }
+
+  getTotalPrice(): number {
+    return this.cart.getTotalPrice();
+  }
 }

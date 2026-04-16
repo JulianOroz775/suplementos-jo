@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SuplementoDataService } from '../suplemento-data.service';
 import { Suplemento } from '../suplementos-lista/Suplemento';
 import { CommonModule } from '@angular/common';
+import { SuplementosCartService } from '../suplementos-cart.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ListarSuplementoComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private suplementoDataService: SuplementoDataService
+        private suplementoDataService: SuplementoDataService,
+        private cart: SuplementosCartService
     ) { }
 
     ngOnInit(): void {
@@ -28,7 +30,27 @@ export class ListarSuplementoComponent implements OnInit {
 
             this.suplementoDataService.getOne(idNumber).subscribe(data => {
                 this.suplemento = data!;
+                this.suplemento.quantity = 0; 
             });
         }
     }
+    upQuantity(): void {
+    if (this.suplemento.quantity < this.suplemento.stock) {
+      this.suplemento.quantity++;
+    }
+  }
+
+  downQuantity(): void {
+    if (this.suplemento.quantity > 1) {
+      this.suplemento.quantity--;
+    }
+  }
+
+  addToCart(): void {
+    if (this.suplemento.stock > 0) {
+      this.cart.addToCart(this.suplemento);
+      this.suplemento.stock -= this.suplemento.quantity;
+      this.suplemento.quantity = 1;
+    }
+  }
 }

@@ -11,6 +11,9 @@ import { SuplementosSuplementoComponent } from './suplementos-suplemento/supleme
 import { CartComponent } from './cart/cart.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 
 @NgModule({
@@ -19,13 +22,16 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
     SuplementosListaComponent,
     SuplementosAboutComponent,
     SuplementosSuplementoComponent,
-    CartComponent,
     InputIntegerComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NavbarComponent,
+    FooterComponent,
+    CartComponent,
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())
